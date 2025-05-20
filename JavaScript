@@ -1,0 +1,39 @@
+const produits = [
+  {
+    nom: "Sac à main cuir vegan",
+    description: "Élégant et pratique, disponible en plusieurs couleurs.",
+    prix: "350 DH",
+    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    nom: "Montre Classique Femme",
+    description: "Bracelet acier doré, étanche, garantie 2 ans.",
+    prix: "499 DH",
+    image: "https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80",
+  },
+  {
+    nom: "Bracelet perles naturelles",
+    description: "Bijou fait main, perles d’agate et quartz rose.",
+    prix: "120 DH",
+    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80",
+  },
+];
+
+const produitsDiv = document.getElementById("produits");
+
+if (produitsDiv) {
+  produits.forEach((p) => {
+    const prod = document.createElement("div");
+    prod.className = "produit";
+    prod.innerHTML = `
+      <img src="${p.image}" alt="${p.nom}">
+      <h3>${p.nom}</h3>
+      <p>${p.description}</p>
+      <p><strong>${p.prix}</strong></p>
+      <a href="https://wa.me/tonnum?text=Je%20veux%20acheter%20${encodeURIComponent(p.nom)}" target="_blank">
+        <button class="acheter-btn">Acheter</button>
+      </a>
+    `;
+    produitsDiv.appendChild(prod);
+  });
+}
